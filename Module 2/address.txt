@@ -1,0 +1,14 @@
+Detecting postal addresses using regular expressions can be difficult because the format of addresses can vary widely depending on the country and the language. However, here is a possible regular expression that could match some types of postal addresses:
+
+perl
+Copy code
+^\d+ \w+ (?:\w+ ){0,2}(?:Road|St(?:reet)?|Avenue|Ave|Lane|Place|Blvd|Boulevard|Court|Ct|Drive|Dr|Parkway|Pkwy|Square|Sq|Way|Terrace|Ter|Circle|Cir|Highway|Hwy)(?:\.|)$
+This regular expression matches strings that meet the following criteria:
+
+Starts at the beginning of the string (^)
+Contains one or more digits (\d+)
+Followed by one or more word characters (\w+)
+Followed by zero to two words separated by spaces ((?:\w+ ){0,2})
+Followed by a common street type such as "Road", "Street", "Avenue", "Lane", etc. ((?:Road|St(?:reet)?|Avenue|Ave|Lane|Place|Blvd|Boulevard|Court|Ct|Drive|Dr|Parkway|Pkwy|Square|Sq|Way|Terrace|Ter|Circle|Cir|Highway|Hwy))
+May end with a period ((?:\.|)$)
+Note that this regular expression is not guaranteed to match all valid postal addresses and may produce false positives or miss valid addresses. Additionally, this regular expression is tailored to the street address format commonly used in the United States and may not match addresses in other countries or regions. It is generally recommended to use a dedicated library or service designed for parsing and validating postal addresses in order to achieve more accurate results.
